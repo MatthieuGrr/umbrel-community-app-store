@@ -7,34 +7,33 @@ services:
       APP_PORT: 22300
 
   db:
-    image: postgres:16-alpine@sha256:23e88eb049fd5d54894d70100df61d38a49ed97909263f79d4ff4c30a5d5fca2
-    restart: on-failure
+    image: postgres:16@sha256:23e88eb049fd5d54894d70100df61d38a49ed97909263f79d4ff4c30a5d5fca2
+    restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: ${APP_PASSWORD}
-      POSTGRES_USER: joplin
-      POSTGRES_DB: joplin
-      PGDATA: /var/lib/postgresql/data/pgdata
+      - POSTGRES_PASSWORD=${APP_PASSWORD}
+      - POSTGRES_USER=joplin
+      - POSTGRES_DB=joplin
     networks:
       default:
         aliases:
-          - joplin-db
+          - db
 
   app:
     image: joplin/server:latest@sha256:5d9e7f9d31b436cb1b99d1a6a65d8c5bf760829094617e8ad1e956fd925de888
-    restart: on-failure
+    restart: unless-stopped
     depends_on:
       - db
     environment:
-      APP_PORT: 22300
-      APP_BASE_URL: ${APP_JOPLIN_BASE_URL:-http://umbrel.local:22300}
-      DB_CLIENT: pg
-      POSTGRES_PASSWORD: ${APP_PASSWORD}
-      POSTGRES_DATABASE: joplin
-      POSTGRES_USER: joplin
-      POSTGRES_PORT: 5432
-      POSTGRES_HOST: joplin-db
+      - APP_PORT=22300
+      - APP_BASE_URL=${APP_JOPLIN_BASE_URL:-http://umbrel.local:22300}
+      - DB_CLIENT=pg
+      - POSTGRES_PASSWORD=${APP_PASSWORD}
+      - POSTGRES_DATABASE=joplin
+      - POSTGRES_USER=joplin
+      - POSTGRES_PORT=5432
+      - POSTGRES_HOST=db
     volumes:
       - ${APP_DATA_DIR}/data/joplin:/data
     networks:
