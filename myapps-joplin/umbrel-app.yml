@@ -37,6 +37,10 @@ dependencies: []
 repo: https://github.com/laurent22/joplin
 support: https://discourse.joplinapp.org
 port: 22300
+gallery:
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
 path: ""
 defaultPassword: "admin"
 releaseNotes: >-
@@ -52,7 +56,3 @@ releaseNotes: >-
   Full release notes: https://github.com/laurent22/joplin/releases
 submitter: Community
 submission: https://github.com/getumbrel/umbrel-apps
-gallery:
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg

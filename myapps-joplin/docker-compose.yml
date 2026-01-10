@@ -3,12 +3,13 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: myapps-joplin_app_1
+      APP_HOST: $APP_JOPLIN_SERVER_IP
       APP_PORT: 22300
-
+  
   db:
-    image: postgres:16-alpine@sha256:REMPLACER_PAR_VOTRE_SHA256_POSTGRES
+    image: postgres:16-alpine@sha256:d898b0b78a2627cb4ee63464a14efc9d296884f1b28c841b0ab7d7c42f1fffdf
     restart: on-failure
+    stop_grace_period: 1m
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     environment:
@@ -18,12 +19,12 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     networks:
       default:
-        aliases:
-          - joplin-db
-
-  app:
-    image: joplin/server:latest@sha256:REMPLACER_PAR_VOTRE_SHA256_JOPLIN
+        ipv4_address: $APP_JOPLIN_DB_IP
+  
+  server:
+    image: joplin/server:latest@sha256:23e88eb049fd5d54894d70100df61d38a49ed97909263f79d4ff4c30a5d5fca2
     restart: on-failure
+    stop_grace_period: 1m
     depends_on:
       - db
     environment:
@@ -34,10 +35,9 @@ services:
       POSTGRES_DATABASE: joplin
       POSTGRES_USER: joplin
       POSTGRES_PORT: 5432
-      POSTGRES_HOST: joplin-db
+      POSTGRES_HOST: $APP_JOPLIN_DB_IP
     volumes:
       - ${APP_DATA_DIR}/data/joplin:/data
     networks:
       default:
-        aliases:
-          - joplin-server
+        ipv4_address: $APP_JOPLIN_SERVER_IP
