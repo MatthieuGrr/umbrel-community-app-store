@@ -1,0 +1,54 @@
+manifestVersion: 1
+id: myapps-joplin
+category: productivity
+name: Joplin Server
+version: "3.2.4"
+tagline: Sync your notes across all your devices
+description: >-
+  Joplin Server is the official sync server for Joplin, an open-source note-taking application.
+  
+  
+  With Joplin Server, you can:
+  
+  - Sync your notes, to-dos, and notebooks across all your devices
+  
+  - Share notebooks with other users
+  
+  - Keep your data under your control with self-hosting
+  
+  - Access your notes from the web interface
+  
+  
+  Joplin supports Markdown formatting, end-to-end encryption, tags, and nested notebooks.
+  Use the Joplin mobile app (Android/iOS) or desktop app (Windows/Mac/Linux) to sync with this server.
+  
+  
+  Default credentials:
+  
+  - Email: admin@localhost
+  
+  - Password: admin
+  
+  
+  ⚠️ Change these credentials immediately after installation!
+developer: Laurent Cozic
+website: https://joplinapp.org
+dependencies: []
+repo: https://github.com/laurent22/joplin
+support: https://discourse.joplinapp.org
+port: 22300
+path: ""
+defaultPassword: "admin"
+releaseNotes: >-
+  This release includes:
+  
+  - Improved performance for large notebooks
+  
+  - Bug fixes and stability improvements
+  
+  - Updated dependencies
+  
+  
+  Full release notes: https://github.com/laurent22/joplin/releases
+submitter: Community
+submission: https://github.com/getumbrel/umbrel-apps
