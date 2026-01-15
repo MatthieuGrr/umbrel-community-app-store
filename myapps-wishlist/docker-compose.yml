@@ -10,7 +10,7 @@ services:
     image: ghcr.io/cmintey/wishlist:latest
     restart: unless-stopped
     environment:
-      - ORIGIN=http://${DEVICE_HOSTNAME:-umbrel.local}:3280
+      - ORIGIN=${APP_WISHLIST_ORIGIN:-http://umbrel.local:3280}
       - TOKEN_TIME=72
       - DEFAULT_CURRENCY=EUR
       - MAX_IMAGE_SIZE=5000000
