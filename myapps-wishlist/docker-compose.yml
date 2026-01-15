@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: myapps-wishlist_app_1
+      APP_PORT: 3280
+
+  app:
+    image: ghcr.io/cmintey/wishlist:latest
+    restart: unless-stopped
+    environment:
+      - ORIGIN=http://${DEVICE_HOSTNAME:-umbrel.local}:3280
+      - TOKEN_TIME=72
+      - DEFAULT_CURRENCY=EUR
+      - MAX_IMAGE_SIZE=5000000
+    volumes:
+      - ${APP_DATA_DIR}/data/uploads:/usr/src/app/uploads
+      - ${APP_DATA_DIR}/data/db:/usr/src/app/data

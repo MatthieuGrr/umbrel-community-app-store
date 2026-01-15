@@ -1,0 +1,49 @@
+manifestVersion: 1
+id: myapps-wishlist
+category: social
+name: Wishlist
+version: "1.0.0"
+tagline: Create and share wishlists with friends and family
+description: >-
+  Wishlist is a self-hosted application that allows you to create and share wishlists with friends and family.
+  Others can claim items and track purchases to avoid duplicate gifts.
+
+
+  Features:
+
+  - Create and organize wishlists in multiple groups
+
+  - Share lists with friends and family
+
+  - Item claiming and purchase tracking
+
+  - Automatic product data extraction from URLs
+
+  - Suggestion system with approval modes
+
+  - Progressive Web App (PWA) support
+
+  - Registry Mode for single-user public lists
+
+  - OAuth authentication via OpenID Connect
+
+
+  Perfect for birthdays, holidays, weddings, or any occasion where you want to coordinate gift-giving!
+developer: cmintey
+website: https://github.com/cmintey/wishlist
+dependencies: []
+repo: https://github.com/cmintey/wishlist
+support: https://github.com/cmintey/wishlist/issues
+port: 3280
+gallery:
+  - https://raw.githubusercontent.com/cmintey/wishlist/main/docs/images/wishlist-screenshot.png
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: >-
+  Initial release for Umbrel.
+
+
+  Full release notes: https://github.com/cmintey/wishlist/releases
+submitter: Community
+submission: https://github.com/cmintey/wishlist
