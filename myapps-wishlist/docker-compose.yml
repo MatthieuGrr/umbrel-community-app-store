@@ -5,6 +5,7 @@ services:
     environment:
       APP_HOST: myapps-wishlist_app_1
       APP_PORT: 3280
+      PROXY_AUTH_ADD: "false"
 
   app:
     image: ghcr.io/cmintey/wishlist:latest
